@@ -14,9 +14,12 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'refinerycms-testing', '~> 2.1.2'
   gem 'factory_girl_rails'
+  gem 'rspec-rails',          '~> 2.99.0'
   gem 'generator_spec'
+  gem 'devise'
+  gem 'refinerycms-testing'
+  gem 'capybara'
 
   require 'rbconfig'
 
@@ -44,6 +47,7 @@ end
   platforms :ruby do
     gem 'spork',        '0.9.2'
     gem 'guard-spork'
+    gem 'guard-rspec'
 
     unless ENV['TRAVIS']
       if RbConfig::CONFIG['target_os'] =~ /darwin/i
@@ -51,7 +55,6 @@ end
         gem 'growl',      '~> 1.0.3'
       end
       if RbConfig::CONFIG['target_os'] =~ /linux/i
-        gem 'rb-inotify', '>= 0.9.5'
         gem 'libnotify',  '~> 0.8.3'
       end
     end
@@ -62,20 +65,6 @@ end
       if RbConfig::CONFIG['target_os'] =~ /darwin/i
         gem 'growl',      '~> 1.0.3'
       end
-      if RbConfig::CONFIG['target_os'] =~ /linux/i
-        gem 'rb-inotify', '>= 0.9.5'
-        gem 'libnotify',  '~> 0.8.3'
-      end
     end
   end
-end
-
-
-group :development,         :test do
-  gem 'sqlite3'
-  gem 'quiet_assets'
-  gem 'thin'
-  gem 'better_errors',      '~> 1.1.0'
-  gem 'binding_of_caller',  '~> 0.7.2'
-  gem 'jazz_hands',         github: 'scarfacedeb/jazz_hands'
 end
