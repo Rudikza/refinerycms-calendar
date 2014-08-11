@@ -1,3 +1,6 @@
+## 2.1.2 [11 August 2014]
+*Update package to run on refinerycms 2.1.2
+
 ## 2.0.2 [21 June 2012]
 * Fix bug; add vendor path to gemspec for assets to be packaged up
 
